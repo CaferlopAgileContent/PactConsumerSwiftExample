@@ -5,29 +5,74 @@
 //  Created by carlos fernandez on 29/1/21.
 //
 
+import Foundation
 import XCTest
+import PactConsumerSwift
 @testable import PactConsumerSwiftExample
 
-class PactConsumerSwiftExampleTests: XCTestCase {
+class Pact_ios_testTests: XCTestCase {
+    
+    var providerMock: MockService?
+    var apiClient: HTTPClientService?
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        makeSUT()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+       apiClient = nil
+       providerMock = nil
+        super.tearDown()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testItSaysHello() throws {
+        providerMock!.uponReceiving("A request from api request")
+            .withRequest(method: .GET, path: "/sayHello")
+            .willRespondWith(status: 200, headers: ["Content-Type": "application/json"], body: ["reply":"Hello"])
+        
+        providerMock!.run { [weak self] (testComplete) in
+            let request = self!.makeRequest()
+            _ = self!.apiClient?.sendRequest(request: request ) { result in
+                switch result {
+                case .success((let data, let httpresponse)):
+                    let json  = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String : String]
+                    XCTAssertTrue(json["reply"] == "Hello")
+                    XCTAssertTrue(httpresponse.url?.absoluteString == "https://localhost:1234/sayHello")
+                    XCTAssertTrue(httpresponse.statusCode == 200)
+                    testComplete()
+                case .failure(_):
+                    break
+                }
+            }
+            
         }
     }
-
+    
+    func makeSUT() {
+        apiClient = HTTPClientService()
+        let pactVerificationService = PactVerificationService(url: "https://localhost", port: 1234, allowInsecureCertificates: true)
+        providerMock = MockService(provider: "Api Provider", consumer: "Api Consumer",pactVerificationService: pactVerificationService)
+    }
+    
+    
+    func makeRequest(file: StaticString = #file, line: UInt = #line) -> HTTPRequest {
+        let dummyRequest = RequestStub(mockedService: self.providerMock!)
+        return dummyRequest
+    }
+    
+    
+    struct RequestStub: HTTPRequest {
+        private let mockedService: MockService
+        
+        public init(mockedService: MockService) {
+            self.mockedService = mockedService
+        }
+        var url: URL {
+            return URL(string: self.mockedService.baseUrl + "/sayHello")!
+        }
+    }
 }
+
+
+

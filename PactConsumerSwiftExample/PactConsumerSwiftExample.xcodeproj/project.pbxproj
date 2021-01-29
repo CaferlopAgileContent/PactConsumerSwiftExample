@@ -15,6 +15,8 @@
 		2EC76CB025C483B5008E19B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC76CAE25C483B5008E19B3 /* LaunchScreen.storyboard */; };
 		2EC76CBB25C483B5008E19B3 /* PactConsumerSwiftExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC76CBA25C483B5008E19B3 /* PactConsumerSwiftExampleTests.swift */; };
 		2EC76CC625C483B5008E19B3 /* PactConsumerSwiftExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC76CC525C483B5008E19B3 /* PactConsumerSwiftExampleUITests.swift */; };
+		2EC76CD825C48561008E19B3 /* HTTPRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC76CD725C48561008E19B3 /* HTTPRequestProtocol.swift */; };
+		2EC76CE025C48574008E19B3 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC76CDF25C48574008E19B3 /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		2EC76CC125C483B5008E19B3 /* PactConsumerSwiftExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PactConsumerSwiftExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC76CC525C483B5008E19B3 /* PactConsumerSwiftExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PactConsumerSwiftExampleUITests.swift; sourceTree = "<group>"; };
 		2EC76CC725C483B5008E19B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EC76CD725C48561008E19B3 /* HTTPRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestProtocol.swift; sourceTree = "<group>"; };
+		2EC76CDF25C48574008E19B3 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		2EC76CA225C483B4008E19B3 /* PactConsumerSwiftExample */ = {
 			isa = PBXGroup;
 			children = (
+				2EC76CD625C484F3008E19B3 /* HTTPService */,
 				2EC76CA325C483B4008E19B3 /* AppDelegate.swift */,
 				2EC76CA525C483B4008E19B3 /* SceneDelegate.swift */,
 				2EC76CA725C483B4008E19B3 /* ViewController.swift */,
@@ -126,6 +131,15 @@
 				2EC76CC725C483B5008E19B3 /* Info.plist */,
 			);
 			path = PactConsumerSwiftExampleUITests;
+			sourceTree = "<group>";
+		};
+		2EC76CD625C484F3008E19B3 /* HTTPService */ = {
+			isa = PBXGroup;
+			children = (
+				2EC76CD725C48561008E19B3 /* HTTPRequestProtocol.swift */,
+				2EC76CDF25C48574008E19B3 /* HTTPClient.swift */,
+			);
+			path = HTTPService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +273,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EC76CA825C483B4008E19B3 /* ViewController.swift in Sources */,
+				2EC76CE025C48574008E19B3 /* HTTPClient.swift in Sources */,
 				2EC76CA425C483B4008E19B3 /* AppDelegate.swift in Sources */,
 				2EC76CA625C483B4008E19B3 /* SceneDelegate.swift in Sources */,
+				2EC76CD825C48561008E19B3 /* HTTPRequestProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
