@@ -64,7 +64,7 @@ extension HTTPClientService: URLSessionDelegate {
     ) {
         guard
             challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust,
-            (challenge.protectionSpace.host.contains("0.0.0.0") || challenge.protectionSpace.host.contains("localhost")),
+              (challenge.protectionSpace.host.contains("localhost") || challenge.protectionSpace.host.contains("127.0.0.1") || challenge.protectionSpace.host.contains("0.0.0.0")),
             let serverTrust = challenge.protectionSpace.serverTrust
         else {
             completionHandler(.performDefaultHandling, nil)

@@ -38,7 +38,7 @@ class Pact_ios_testTests: XCTestCase {
                 case .success((let data, let httpresponse)):
                     let json  = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String : String]
                     XCTAssertTrue(json["reply"] == "Hello")
-                    XCTAssertTrue(httpresponse.url?.absoluteString == "https://localhost:1234/sayHello")
+                    XCTAssertTrue(httpresponse.url?.absoluteString == "https://127.0.0.1:1234/sayHello")
                     XCTAssertTrue(httpresponse.statusCode == 200)
                     testComplete()
                 case .failure(_):
@@ -51,7 +51,7 @@ class Pact_ios_testTests: XCTestCase {
     
     func makeSUT() {
         apiClient = HTTPClientService()
-        let pactVerificationService = PactVerificationService(url: "https://localhost", port: 1234, allowInsecureCertificates: true)
+        let pactVerificationService = PactVerificationService(url: "https://127.0.0.1", port: 1234, allowInsecureCertificates: true)
         providerMock = MockService(provider: "Api Provider", consumer: "Api Consumer",pactVerificationService: pactVerificationService)
     }
     
