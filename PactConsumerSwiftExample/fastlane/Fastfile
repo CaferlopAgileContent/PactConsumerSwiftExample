@@ -29,7 +29,7 @@ platform :ios do
   desc "Run pacts test"
   lane :Pact_tests do
     run_tests(
-        scheme: "PactConsumerSwiftExample",
+        scheme: "PactConsumerSwiftExampleForTests",
         device: "iPhone 12"
      )
   end
