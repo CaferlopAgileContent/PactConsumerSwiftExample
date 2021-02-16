@@ -2,7 +2,7 @@ name: Pact CI
 #Workflow triggered on pushes
 on:
   push:
-    branches: [master]
+    branches: main
 # Run the next jobs
 jobs:
   # This workflow contains a single job called "build"
