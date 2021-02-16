@@ -21,12 +21,12 @@ jobs:
       
     - name: Install pods
       run: cd PactConsumerSwiftExample
-           \ bundle exec fastlane Pods
+           \ bundle exec fastlane Pods --verbose
       
     - name: Install pact stand alone
       run: cd PactConsumerSwiftExample
-           \ bundle exec fastlane Install_pact
+           \ bundle exec fastlane Install_pact --verbose
       
     - name: Run pact test
       run: cd PactConsumerSwiftExample
-           \ bundle exec faslane Pact_tests
+           \ bundle exec faslane Pact_tests --verbose
