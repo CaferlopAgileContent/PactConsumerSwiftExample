@@ -28,10 +28,7 @@ platform :ios do
 
   desc "Run pacts test"
   lane :Pact_tests do
-    run_tests(workspace: "PactConsumerSwiftExample.xcworkspace"
-        scheme: "PactConsumerSwiftExampleForTests",
-        device: "iPhone 12"
-     )
+    run_pact_tests
   end
 
 end
@@ -45,5 +42,9 @@ end
 
 def install_pact
   sh("gem install pact-mock_service")
+end
+
+def run_pact_tests 
+  sh("sh ../RunPactTests.sh")
 end
 
