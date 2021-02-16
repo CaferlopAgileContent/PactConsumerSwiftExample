@@ -20,7 +20,7 @@ jobs:
            \ bundle install
       
     - name: Install pods
-      run: fatlane Pods
+      run: fastlane Pods
       
     - name: Install pact stand alone
       run: fastlane Install_pact
