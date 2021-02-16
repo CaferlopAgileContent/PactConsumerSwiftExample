@@ -28,7 +28,7 @@ platform :ios do
 
   desc "Run pacts test"
   lane :Pact_tests do
-    run_tests(
+    run_tests(workspace: "PactConsumerSwiftExample.xcworkspace"
         scheme: "PactConsumerSwiftExampleForTests",
         device: "iPhone 12"
      )
