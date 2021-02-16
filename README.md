@@ -11,3 +11,4 @@ pact-mock-service start --ssl --pact-specification-version 2.0.0 --log "${SRCROO
 
 Run pod install in order to execute this project.
 Run testItSaysHello test.
+
