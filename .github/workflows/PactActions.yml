@@ -19,9 +19,6 @@ jobs:
       run: cd PactConsumerSwiftExample
            \ bundle install
       
-    - name: Build
-      run: bundle exec fastlane buildLane
-      
     - name: Install pods
       run: fatlane Pods
       
