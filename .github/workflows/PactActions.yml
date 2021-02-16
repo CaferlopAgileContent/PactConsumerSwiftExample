@@ -33,4 +33,4 @@ jobs:
     - name: Run pact test
       run: |
           cd PactConsumerSwiftExample
-          bundle exec faslane Pact_tests --verbose
+          bundle exec fastlane Pact_tests --verbose
