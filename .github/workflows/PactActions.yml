@@ -1,0 +1,31 @@
+name: Pact CI
+#Workflow triggered on pushes
+on:
+  push:
+    branches: [master]
+# Run the next jobs
+jobs:
+  # This workflow contains a single job called "build"
+  build-and-test:
+    # The type of runner that the job will run on
+    runs-on: macos-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+    
+    - name: Install Bundle
+      run: bundle install
+      
+    - name: Build
+      run: bundle exec fastlane buildLane
+      
+    - name: Install pods
+      run: fatlane Pods
+      
+    - name: Install pact stand alone
+      run: fastlane Install_pact
+      
+    - name: Run pact test
+      run: faslane Pact_tests
