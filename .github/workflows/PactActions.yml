@@ -16,17 +16,21 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Install Bundle
-      run: cd PactConsumerSwiftExample
-           \ bundle install
+      run: |
+          cd PactConsumerSwiftExample
+          bundle install
       
     - name: Install pods
-      run: cd PactConsumerSwiftExample
-           \ bundle exec fastlane Pods --verbose
+      run: |
+          cd PactConsumerSwiftExample
+          bundle exec fastlane Pods --verbose
       
     - name: Install pact stand alone
-      run: cd PactConsumerSwiftExample
-           \ bundle exec fastlane Install_pact --verbose
+      run: |
+          cd PactConsumerSwiftExample
+          bundle exec fastlane Install_pact --verbose
       
     - name: Run pact test
-      run: cd PactConsumerSwiftExample
-           \ bundle exec faslane Pact_tests --verbose
+      run: |
+          cd PactConsumerSwiftExample
+          bundle exec faslane Pact_tests --verbose
