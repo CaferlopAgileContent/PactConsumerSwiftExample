@@ -1,0 +1,22 @@
+PODS:
+  - PactConsumerSwift (0.10.0)
+
+DEPENDENCIES:
+  - PactConsumerSwift (from `https://github.com/DiUS/pact-consumer-swift`, branch `master`)
+
+EXTERNAL SOURCES:
+  PactConsumerSwift:
+    :branch: master
+    :git: https://github.com/DiUS/pact-consumer-swift
+
+CHECKOUT OPTIONS:
+  PactConsumerSwift:
+    :commit: 250e8c8fb121a344a0d4ed220aab5da2b27a6ba1
+    :git: https://github.com/DiUS/pact-consumer-swift
+
+SPEC CHECKSUMS:
+  PactConsumerSwift: af7bbf91a4f4bd3d251c8d8b2ac31e596ae61705
+
+PODFILE CHECKSUM: 5c8ebc516ae9122231d36c89af64d6add777bd77
+
+COCOAPODS: 1.10.1

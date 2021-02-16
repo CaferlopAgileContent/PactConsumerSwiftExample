@@ -1,0 +1,31 @@
+{
+  "consumer": {
+    "name": "Api Consumer"
+  },
+  "provider": {
+    "name": "Api Provider"
+  },
+  "interactions": [
+    {
+      "description": "A request from api request",
+      "request": {
+        "method": "get",
+        "path": "/sayHello"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "reply": "Hello"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
