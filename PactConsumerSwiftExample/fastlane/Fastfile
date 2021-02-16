@@ -39,6 +39,7 @@ end
 ####### Definitions
 
 def pods
+  sh("gem install cocoapods")
   sh("pod repo update")
   sh("pod install")
 end
