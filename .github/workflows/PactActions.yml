@@ -31,6 +31,5 @@ jobs:
           bundle exec fastlane Install_pact --verbose
       
     - name: Run pact test
-      run: |
-          cd PactConsumerSwiftExample
-          bundle exec fastlane Pact_tests --verbose
+      run: xcodebuild clean build test -workspace ../PactConsumerSwiftExample.xcworkspace -scheme "PactConsumerSwiftExampleForTests" -destination "platform=iOS Simulator,name=iPhone 12"
+
